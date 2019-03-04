@@ -16,8 +16,9 @@
       :br="dynBr + 'px'"
       :pad="dynPad + 'px'"
       :bgc="dynBgc"
-      >I am a dynamically styled button. Change the fields below to change
-      me!</styled-button
+      @click="alertButton"
+      >I am a dynamically styled button. Change the fields below! Click for the
+      current styles.</styled-button
     >
 
     <br /><span>Text Color </span><input type="color" v-model="dynColor" />
@@ -44,6 +45,16 @@ export default {
       dynPad: 15,
       dynBgc: "#4ABB00"
     };
+  },
+  methods: {
+    alertButton() {
+      alert(
+        `Styles are \nBackground Color: ${this.dynBgc} \n Text Color: ${
+          this.dynColor
+        } \n Padding: ${this.dynPad + "px"} \n Border Radius: ${this.dynBr +
+          "px"}`
+      );
+    }
   }
 };
 </script>
